@@ -12,6 +12,7 @@ A beginner-friendly command-line Student Performance Management System built wit
 - Filter by average and pass/fail status
 - Sort by name, average, Python, SQL, or Math
 - Display top 3, 5, or 10 students
+- Use `map()` to calculate the averages used when ranking top students
 - Validate input without crashing on invalid values
 - Unit tests using `unittest`
 

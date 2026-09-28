@@ -30,6 +30,11 @@ def parse_mark(value: str, subject: str) -> int:
     return mark
 
 
+def calculate_averages(students: Iterable[Student]) -> list[float]:
+    """Transform each student into their average using ``map()``."""
+    return list(map(Student.average, students))
+
+
 def search_students(students: Iterable[Student], query: str) -> list[Student]:
     """Find students by exact ID or case-insensitive name substring."""
     query = query.strip()

@@ -7,6 +7,7 @@ from pathlib import Path
 from .file_handler import export_json, load_students, save_students
 from .student import Student
 from .utils import (
+    calculate_averages,
     filter_students,
     format_student_line,
     parse_mark,
@@ -106,7 +107,9 @@ def show_top_students(students: list[Student]) -> None:
     except ValueError as error:
         print(f"Invalid input: {error}")
         return
-    print_students(sorted(students, key=lambda item: item.average(), reverse=True)[:count], "TOP STUDENTS")
+    averages = calculate_averages(students)
+    ranked = sorted(zip(students, averages), key=lambda pair: pair[1], reverse=True)
+    print_students([student for student, _ in ranked[:count]], "TOP STUDENTS")
 
 
 def run() -> None:

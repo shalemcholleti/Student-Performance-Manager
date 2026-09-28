@@ -5,7 +5,7 @@ from pathlib import Path
 
 from src.file_handler import export_json, load_students, save_students
 from src.student import Student
-from src.utils import filter_students, parse_mark, search_students, sort_students
+from src.utils import calculate_averages, filter_students, parse_mark, search_students, sort_students
 
 
 class StudentTests(unittest.TestCase):
@@ -21,6 +21,9 @@ class StudentTests(unittest.TestCase):
 
     def test_average_calculation(self):
         self.assertEqual(self.rahul.average(), 78.33)
+
+    def test_map_calculates_all_student_averages(self):
+        self.assertEqual(calculate_averages(self.students), [78.33, 91.67, 38.33])
 
     def test_grade_calculation(self):
         self.assertEqual(self.rahul.grade(), "B")
